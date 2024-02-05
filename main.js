@@ -1,8 +1,10 @@
-document.querySelector("#fetch_dog").addEventListener("click", async () => {});
+document.querySelector("#fetch_dog").addEventListener("click", async () => {
+    refreshDog();
+});
 async function refreshDog() {
   let fetchResult = await fetch("https://random.dog/woof.json");
   let data = await fetchResult.json();
-  if (data.url.include(".mp4")) {
+  if (data.url.includes(".mp4")) {
     refreshDog();
     return;
   }
